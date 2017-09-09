@@ -187,5 +187,24 @@ namespace NgrokLauncher
                 else checkBox1.Checked = true;
             }
         }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if ((FormWindowState.Minimized == this.WindowState) && !button1.Enabled)
+            {
+                notifyIcon1.Visible = true;
+                this.Hide();
+            }
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Show();
+                notifyIcon1.Visible = false;
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
