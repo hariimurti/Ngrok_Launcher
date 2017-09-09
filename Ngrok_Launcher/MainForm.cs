@@ -14,7 +14,7 @@ namespace NgrokLauncher
             InitializeComponent();
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
+        private async void MainForm_Shown(object sender, EventArgs e)
         {
             if (!File.Exists(Ngrok.FileNgrokExecutable))
             {
@@ -24,6 +24,8 @@ namespace NgrokLauncher
 
                 Application.Exit();
             }
+
+            await ngrok.Stop();
 
             button1.Enabled = false;
             button2.Enabled = false;
