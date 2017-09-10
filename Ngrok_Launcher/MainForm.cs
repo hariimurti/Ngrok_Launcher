@@ -16,7 +16,7 @@ namespace NgrokLauncher
 
         private async void MainForm_Shown(object sender, EventArgs e)
         {
-            if (!File.Exists(Ngrok.FileNgrokExecutable))
+            if (!ngrok.IsExists())
             {
                 var dialog = MessageBox.Show("This application requires ngrok.exe\nDownload now?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (dialog == DialogResult.Yes)

@@ -93,6 +93,11 @@ namespace NgrokLauncher
             }
         }
 
+        public bool IsExists()
+        {
+            return File.Exists(FileNgrokExecutable);
+        }
+
         public Response GetResponse()
         {
             try
