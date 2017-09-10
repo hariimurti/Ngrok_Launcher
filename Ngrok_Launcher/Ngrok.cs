@@ -163,6 +163,7 @@ namespace NgrokLauncher
                 {
                     var proc = Process.Start(exec);
                     proc.WaitForExit();
+                    proc.Dispose();
                 });
             }
             catch (Exception ex)

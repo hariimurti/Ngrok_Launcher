@@ -20,7 +20,7 @@ namespace NgrokLauncher
             {
                 var dialog = MessageBox.Show("This application requires ngrok.exe\nDownload now?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (dialog == DialogResult.Yes)
-                    Process.Start("https://ngrok.com/download");
+                    Process.Start("https://ngrok.com/download").Dispose();
 
                 Application.Exit();
             }
@@ -159,15 +159,15 @@ namespace NgrokLauncher
                     break;
 
                 case "1o":
-                    Process.Start(textBox4.Text);
+                    Process.Start(textBox4.Text).Dispose();
                     break;
 
                 case "2o":
-                    Process.Start(textBox5.Text);
+                    Process.Start(textBox5.Text).Dispose();
                     break;
 
                 case "3o":
-                    Process.Start(textBox6.Text);
+                    Process.Start(textBox6.Text).Dispose();
                     break;
             }
         }
