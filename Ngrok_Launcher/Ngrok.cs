@@ -1,18 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YamlDotNet.Serialization;
 
 namespace NgrokLauncher
 {
-    class Ngrok
+    internal class Ngrok
     {
         private static readonly string NgrokExecutable = "ngrok.exe";
         private static readonly string NgrokYaml = "ngrok.yaml";
@@ -130,7 +127,7 @@ namespace NgrokLauncher
             config.tunnels.ssh.addr = tcp;
             config.run_website = website;
             config.run_ssh = ssh;
-            
+
             var serializer = new SerializerBuilder().Build();
             var yaml = serializer.Serialize(config);
             File.WriteAllText(FileConfig, yaml);
@@ -150,9 +147,11 @@ namespace NgrokLauncher
                 case 1:
                     exec.Arguments += "website";
                     break;
+
                 case 2:
                     exec.Arguments += "ssh";
                     break;
+
                 default:
                     exec.Arguments += "website ssh";
                     break;

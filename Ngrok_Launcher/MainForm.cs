@@ -70,7 +70,7 @@ namespace NgrokLauncher
             var tcp = 22;
             int.TryParse(textBox3.Text, out tcp);
             textBox3.Text = tcp.ToString();
-            
+
             ngrok.Save(token, http, tcp, checkBox1.Checked, checkBox2.Checked);
         }
 
@@ -149,18 +149,23 @@ namespace NgrokLauncher
                 case "1c":
                     Clipboard.SetText(textBox4.Text);
                     break;
+
                 case "2c":
                     Clipboard.SetText(textBox5.Text);
                     break;
+
                 case "3c":
                     Clipboard.SetText(textBox6.Text);
                     break;
+
                 case "1o":
                     Process.Start(textBox4.Text);
                     break;
+
                 case "2o":
                     Process.Start(textBox5.Text);
                     break;
+
                 case "3o":
                     Process.Start(textBox6.Text);
                     break;
